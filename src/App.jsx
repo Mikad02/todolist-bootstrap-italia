@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BSIHeader } from "./BSIHeader";
 import { BSITodoForm } from "./BSITodoForm";
 import { BSITodoList } from "./BSITodoList";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() =>{
+    const localValue = localStorage.getItem("ITEMS")
+    if(localValue == null) { return []; }
+    return JSON.parse(localValue);
+  });
+
+  useEffect(()=>{
+    localStorage.setItem("ITEMS", JSON.stringify(todos))
+  }, [todos])
 
   function addTodo(title) {
     setTodos((currTodos) => {
@@ -36,7 +44,7 @@ export default function App() {
     <>
       <BSIHeader />
       <BSITodoForm onSubmit={addTodo} />
-      <h2 className="mx-3"> Todo list: </h2>
+      <h2 className="mx-3"> Task attuali: </h2>
       <BSITodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </>
   );

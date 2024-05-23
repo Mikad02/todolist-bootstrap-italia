@@ -6,10 +6,7 @@ export function BSIHeader() {
           <div className="col-12">
             <div className="it-header-center-content-wrapper">
               <div className="it-brand-wrapper">
-                <a href="#">
-                  <svg className="icon" aria-hidden="true">
-                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-pa"></use>
-                  </svg>
+                <a>
                   <div className="it-brand-text">
                     <div className="it-brand-title">Todo list</div>
                     <div className="it-brand-tagline d-none d-md-block">
