@@ -1,6 +1,6 @@
 export function BSIHeader() {
   return (
-    <div class="it-header-center-wrapper it-small-header">
+    <div class="it-header-center-wrapper it-small-header mb-5">
       <div class="container">
         <div class="row">
           <div class="col-12">
