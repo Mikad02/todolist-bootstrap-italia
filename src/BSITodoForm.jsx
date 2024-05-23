@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export function BSITodoForm({addTodo}) {
+export function BSITodoForm({onSubmit}) {
   const [newItem, setNewItem] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    if(newItem === "") return;
-    addTodo(newItem);
+    if (newItem === "") return;
+    onSubmit(newItem);
     setNewItem("");
   }
 
@@ -24,7 +24,7 @@ export function BSITodoForm({addTodo}) {
           id="formGroupExampleInput"
         />
       </div>
-      <div className="d-flex justify-content-center w-100"> 
+      <div className="d-flex justify-content-center w-100">
         <button className="btn btn-primary" type="submit">
           Aggiungi
         </button>
