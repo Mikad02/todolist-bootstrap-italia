@@ -15,12 +15,29 @@ export default function App() {
     });
   }
 
+  function toggleTodo(id, completed){
+    setTodos(currTodos=>{
+      return currTodos.map(todo=>{
+        if(todo.id === id){
+          return {...todo, completed}
+        }
+        else {return todo}
+      })
+    })
+  }
+
+  function deleteTodo(id){
+    setTodos(currTodos=>{
+      return currTodos.filter(todo => todo.id !== id)
+    })
+  }
+
   return (
     <>
       <BSIHeader />
       <BSITodoForm onSubmit={addTodo} />
       <h2 className="mx-3"> Todo list: </h2>
-      <BSITodoList todos={todos}/>
+      <BSITodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </>
   );
 }
